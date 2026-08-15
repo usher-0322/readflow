@@ -1,0 +1,966 @@
+:root{--journal-bg:#eeece9;--journal-card:#fff;--journal-text:#171717;--journal-muted:#797671;--journal-line:#e8e5e1;--journal-yellow:#f6b92f;--journal-peach:#f3d7ce;--journal-lilac:#ded7f4;--journal-sage:#dce5ce;--journal-sand:#e6ddd0;--journal-rose:#efd6dc;--journal-blue:#d5e2e8}
+html,body,#root,.app{background:var(--journal-bg)!important;color:var(--journal-text)!important}body,button,input,select,textarea{font-family:'Microsoft YaHei','YouYuan','Arial Rounded MT Bold',Arial,sans-serif!important;font-feature-settings:normal!important}.app{box-shadow:none!important}.quiet-top{border:0!important;padding:18px 22px 2px!important;color:var(--journal-muted);font-size:12px}.quiet-top .icon-btn{background:#fff!important;border:0!important;border-radius:50%!important}
+.page-head{border:0!important;margin:10px 0 24px!important;padding:0!important;align-items:center!important}.page-head small{color:var(--journal-muted)!important;letter-spacing:.02em!important;text-transform:none!important}.page-head h1,.section-title h2,.plan-summary b,.stat-grid b,.timer b,.modal-head h2{font-family:'Microsoft YaHei','YouYuan',sans-serif!important;letter-spacing:-.035em!important}.page-head h1{font-size:32px!important;font-weight:700!important;line-height:1.15!important;margin-top:6px}.streak{background:#fff!important;border:0!important;border-radius:999px!important;color:#765c24!important;padding:9px 12px!important}
+.daily-summary{background:#fff;border-radius:24px;padding:22px;display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}.daily-summary small{color:var(--journal-muted)}.daily-summary strong{display:block;font-size:48px;line-height:1;margin:9px 0 8px}.daily-summary strong em{font-size:15px;font-style:normal;font-weight:500;margin-left:5px;color:var(--journal-muted)}.daily-summary p{color:var(--journal-muted);font-size:13px}.soft-ring{--p:0;width:82px;height:82px;border-radius:50%!important;background:conic-gradient(var(--journal-yellow) calc(var(--p)*1%),#f0eeea 0);display:grid;place-content:center;text-align:center;position:relative}.soft-ring:after{content:'';position:absolute;inset:7px;border-radius:50%;background:#fff}.soft-ring b,.soft-ring small{position:relative;z-index:1}.soft-ring b{font-size:22px}.soft-ring small{font-size:10px;color:var(--journal-muted)}
+.section-title{border:0!important;padding:0!important;margin:28px 0 14px!important}.section-title h2{font-size:20px!important;font-weight:700!important}.section-title span{font-size:12px!important;color:var(--journal-muted)!important}.book-stack{counter-reset:none}.reading-card,.shelf-list article,.plan-list article,.quote-list article,.chart-card,.stat-grid>div,.excerpt-progress>div{background:#fff!important;border:0!important;border-radius:20px!important;box-shadow:none!important}.reading-card{padding:18px!important;display:block!important}.reading-card:before{display:none!important}.reading-card+.reading-card{margin-top:12px}.book-main{margin-top:14px}.book-top h3,.shelf-list h3,.plan-list h3{font-family:'Microsoft YaHei','YouYuan',sans-serif!important;font-weight:700!important}.book-top>div>p{margin-top:4px}.book-top>b{font-size:13px;color:var(--journal-muted)}
+.type-badge{width:max-content;display:inline-flex;align-items:center;gap:6px;padding:7px 10px;border-radius:10px;font-size:11px;font-weight:600;color:#4d4945}.type-badge svg{width:15px;height:15px;stroke-width:1.7}.type-badge.peach{background:var(--journal-peach)}.type-badge.lilac{background:var(--journal-lilac)}.type-badge.sage{background:var(--journal-sage)}.type-badge.sand{background:var(--journal-sand)}.type-badge.rose{background:var(--journal-rose)}.type-badge.blue{background:var(--journal-blue)}.type-badge.icon-only{padding:10px;font-size:0;border-radius:12px}
+.cover,.mini-cover{display:none!important}.progress,.line{height:5px!important;background:#f0eeeb!important;border-radius:999px!important;overflow:hidden}.progress i,.line i{background:var(--journal-yellow)!important;border-radius:999px!important}.target{color:var(--journal-muted)!important}.primary{background:var(--journal-yellow)!important;border:0!important;border-radius:14px!important;color:#1a1815!important;font-weight:700}.primary.slim{background:#faf8f5!important;color:#26231f!important}.round-add{width:46px;height:46px;border:0!important;border-radius:50%!important;background:var(--journal-yellow)!important;color:#171717!important}.icon-btn{border-radius:50%!important}.search{background:#fff!important;border:0!important;border-radius:16px!important;padding:0 14px!important}.filter-row button{background:#fff!important;border:0!important;border-radius:999px!important;padding:9px 13px!important}.filter-row button svg{width:14px}.filter-row .selected{background:#1f1f1f!important;color:#fff!important}.shelf-list article{padding:16px!important}.shelf-info>span{color:var(--journal-muted)!important;font-size:10px}.plan-summary{background:#fff!important;border:0!important;border-radius:20px!important}.plan-summary div{border-color:var(--journal-line)!important}.plan-list article{padding:16px!important}.plan-date{background:#faf7f2!important;border:0!important;border-radius:14px!important}.forecast{background:#faf9f7!important;border:0!important;border-radius:12px!important}.forecast .early{color:#68794b!important}.forecast .late{color:#9a5b52!important}
+.segmented,.range{background:#fff!important;border:0!important;border-radius:14px!important;padding:4px!important}.segmented button,.range button{border:0!important;border-radius:10px!important}.segmented .on,.range .on{background:#1f1f1f!important;color:#fff!important}.quote-list blockquote{font-family:'Microsoft YaHei','YouYuan',sans-serif!important}.stat-grid{gap:10px!important}.stat-grid>div{padding:17px!important}.stat-grid svg{color:#8b8379}.chart-card{padding:18px!important}.bars i{background:var(--journal-yellow)!important;border-radius:999px 999px 5px 5px!important}.speed-row .type-badge{flex:none}.speed-row .type-badge svg{width:18px;height:18px}
+nav{background:rgba(255,255,255,.94)!important;border:0!important;border-radius:22px 22px 0 0!important;box-shadow:0 -8px 30px rgba(32,28,24,.06)!important}nav button{color:#8a8782!important}nav button.active{color:#171717!important}nav .active:before{display:none!important}nav button svg{stroke-width:1.6!important}nav button.active svg{fill:#171717;stroke:#171717}
+.overlay{background:rgba(28,25,23,.25)!important;backdrop-filter:blur(6px)}.modal{background:#fff!important;border:0!important;border-radius:24px 24px 0 0!important}.form-grid input,.form-grid select,.form-grid textarea,.type-editor input,.inline-add input{background:#f7f5f2!important;border:1px solid transparent!important;border-radius:12px!important}.timer,.calc,.offline{background:#f8f6f3!important;border:0!important;border-radius:18px!important}.timer button{border-radius:50%!important;background:var(--journal-yellow)!important;color:#171717!important}.settings-list button,.settings-list label{border-color:var(--journal-line)!important}.toast{background:#1f1f1f!important;border-radius:14px!important}button{transition:opacity .18s ease,background-color .18s ease}button:active{opacity:.68}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid #171717!important;outline-offset:2px!important}
+@media(max-width:640px){main{padding-left:18px!important;padding-right:18px!important}.reading-card{padding:17px!important}.daily-summary{padding:19px}.page-head h1{font-size:30px!important}}@media(min-width:721px){.app{border:0!important;border-radius:28px!important;overflow:hidden}.modal{border-radius:24px!important}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{transition:none!important;scroll-behavior:auto!important}}
+
+/* Daily adaptive theme: yesterday's most-read book type sets these tokens. */
+:root{--day-accent:#ee8d72;--day-soft:#f9d8cd;--day-pale:#fcebe5}
+.quiet-top{background:var(--day-pale)!important;border-radius:0 0 24px 24px!important;color:#554e49!important;margin:0 -2px 14px!important;padding:18px 22px 16px!important;position:relative}
+.quiet-top:before{background:var(--day-accent);border-radius:50%;content:'';height:8px;margin-right:8px;width:8px}
+.quiet-top .icon-btn{background:rgba(255,255,255,.52)!important}
+.page-head{position:relative}
+.page-head:after{background:var(--day-soft);border-radius:48% 52% 44% 56%!important;content:'';height:46px;opacity:.72;position:absolute;right:74px;top:4px;transform:rotate(-9deg);width:46px;z-index:0}
+.page-head>div,.page-head>.streak,.page-head>.round-add{position:relative;z-index:1}
+.daily-summary{background:linear-gradient(145deg,var(--day-soft),var(--day-pale))!important;border:0!important;overflow:hidden;position:relative}
+.daily-summary:before{border:2px solid rgba(255,255,255,.68);border-radius:50%;content:'';height:78px;position:absolute;right:-20px;top:-28px;width:78px}
+.daily-summary:after{background:var(--day-accent);border-radius:50%;bottom:17px;content:'';height:9px;left:46%;opacity:.65;position:absolute;width:9px}
+.soft-ring{background:conic-gradient(var(--day-accent) calc(var(--p)*1%),rgba(255,255,255,.48) 0)!important}
+.soft-ring:after{background:var(--day-pale)!important}
+.progress i,.line i,.bars i{background:var(--day-accent)!important}
+.primary,.round-add,.timer button{background:var(--day-accent)!important}
+.streak svg{color:var(--day-accent)!important;fill:var(--day-accent)!important}
+
+/* Bold playful editorial treatment for the Today screen. */
+.quiet-top{background:transparent!important;border-radius:0!important;margin:0!important;padding:22px 22px 8px!important}
+.quiet-top:before{display:none!important}
+.quiet-top>span{font-size:0}
+.quiet-top>span:after{color:var(--journal-text);content:'Today';font-size:15px;font-weight:700;letter-spacing:-.02em}
+.quiet-top .icon-btn{background:transparent!important;border:1px solid #d5d2cd!important}
+.page-head:after{display:none!important}
+.page-head h1{font-size:clamp(36px,11vw,52px)!important;letter-spacing:-.065em!important;line-height:.94!important;max-width:290px}
+.page-head small{font-size:11px!important}
+.daily-summary{background:transparent!important;border-bottom:1px solid #d7d3ce!important;border-radius:0!important;padding:4px 0 22px!important}
+.daily-summary:before,.daily-summary:after{display:none!important}
+.daily-summary strong{font-size:54px!important;letter-spacing:-.06em}
+.soft-ring:after{background:var(--journal-bg)!important}
+.book-stack{display:grid!important;gap:12px!important;grid-auto-columns:min(78vw,300px);grid-auto-flow:column;overflow-x:auto;padding:0 18px 10px 0;scroll-snap-type:x mandatory;scrollbar-width:none}
+.book-stack::-webkit-scrollbar{display:none}
+.book-stack .reading-card{display:flex!important;flex-direction:column;min-height:390px;overflow:hidden;padding:18px 18px 174px!important;position:relative;scroll-snap-align:start}
+.book-stack .reading-card+.reading-card{margin-top:0}
+.book-stack .reading-card:after{background:linear-gradient(145deg,var(--day-soft),var(--day-pale));border-radius:20px 20px 18px 18px;bottom:0;content:'';height:150px;left:0;position:absolute;width:100%;z-index:0}
+.book-stack .reading-card:before{background:radial-gradient(circle at 42% 42%,#171717 0 2px,transparent 3px),radial-gradient(circle at 61% 42%,#171717 0 2px,transparent 3px),radial-gradient(ellipse at 51% 56%,transparent 0 8px,#171717 9px 10px,transparent 11px),var(--day-accent);border-radius:46% 54% 48% 52% / 55% 45% 55% 45%!important;bottom:30px;clip-path:polygon(50% 0,61% 24%,85% 13%,76% 38%,100% 50%,75% 61%,86% 88%,61% 77%,50% 100%,39% 77%,14% 88%,25% 61%,0 50%,24% 38%,15% 13%,39% 24%);content:''!important;display:block!important;height:96px;left:50%;position:absolute;transform:translateX(-50%) rotate(-4deg);width:96px;z-index:2}
+.book-stack .reading-card:nth-child(2):after{background:linear-gradient(145deg,#ece989,#f8f3bd)}
+.book-stack .reading-card:nth-child(2):before{background:radial-gradient(circle at 42% 42%,#171717 0 2px,transparent 3px),radial-gradient(circle at 61% 42%,#171717 0 2px,transparent 3px),radial-gradient(ellipse at 51% 56%,transparent 0 8px,#171717 9px 10px,transparent 11px),#e98272;transform:translateX(-50%) rotate(5deg)}
+.book-stack .reading-card:nth-child(3):after{background:linear-gradient(145deg,#d8c3ea,#eee4f6)}
+.book-stack .reading-card:nth-child(3):before{background:radial-gradient(circle at 42% 42%,#171717 0 2px,transparent 3px),radial-gradient(circle at 61% 42%,#171717 0 2px,transparent 3px),radial-gradient(ellipse at 51% 56%,transparent 0 8px,#171717 9px 10px,transparent 11px),#b77bd4}
+.book-stack .type-badge,.book-stack .book-main{position:relative;z-index:3}
+.book-stack .book-top h3{font-size:21px!important;letter-spacing:-.045em;line-height:1.06;margin-top:12px;max-width:210px}
+.book-stack .primary.slim{background:#171717!important;color:#fff!important;margin-top:12px}
+
+@media(min-width:620px){.book-stack{grid-auto-columns:min(43%,300px)}}
+
+/* Currently Reading uses landscape cards: information left, illustration right. */
+.book-stack{display:flex!important;flex-direction:column!important;gap:12px!important;overflow:visible!important;padding:0!important;scroll-snap-type:none!important}
+.book-stack .reading-card{display:block!important;min-height:218px!important;overflow:hidden!important;padding:18px 39% 18px 18px!important;scroll-snap-align:none!important}
+.book-stack .reading-card+.reading-card{margin-top:0!important}
+.book-stack .reading-card:after{border-radius:0 20px 20px 0!important;bottom:0!important;height:100%!important;left:auto!important;right:0!important;width:34%!important}
+.book-stack .reading-card:before{bottom:auto!important;height:72px!important;left:auto!important;right:calc(17% - 36px)!important;top:50%!important;transform:translateY(-50%) rotate(-4deg)!important;width:72px!important}
+.book-stack .reading-card:nth-child(2):before{transform:translateY(-50%) rotate(5deg)!important}
+.book-stack .book-top h3{font-size:18px!important;line-height:1.12!important;margin-top:9px!important;max-width:none!important}
+.book-stack .book-top>b{display:none}
+.book-stack .target{align-items:flex-start;flex-direction:column;gap:3px;margin-bottom:8px}
+.book-stack .primary.slim{background:#171717!important;color:#fff!important;margin-top:8px!important;min-height:42px}
+
+@media(max-width:380px){
+  .book-stack .reading-card{padding-right:36%!important}
+  .book-stack .reading-card:after{width:31%!important}
+  .book-stack .reading-card:before{height:62px!important;right:calc(15.5% - 31px)!important;width:62px!important}
+}
+
+/* Uniform portrait cards with a smaller illustrated footer. */
+.book-stack{display:grid!important;gap:12px!important;grid-auto-columns:min(76vw,286px)!important;grid-auto-flow:column!important;overflow-x:auto!important;padding:0 18px 10px 0!important;scroll-snap-type:x mandatory!important}
+.book-stack .reading-card{display:flex!important;flex-direction:column!important;height:350px!important;min-height:350px!important;overflow:hidden!important;padding:17px 17px 92px!important;scroll-snap-align:start!important}
+.book-stack .reading-card:after{border-radius:18px 18px 20px 20px!important;bottom:0!important;height:76px!important;left:0!important;right:auto!important;width:100%!important}
+.book-stack .reading-card:before{bottom:11px!important;height:54px!important;left:50%!important;right:auto!important;top:auto!important;transform:translateX(-50%) rotate(-4deg)!important;width:54px!important}
+.book-stack .reading-card:nth-child(2):before{transform:translateX(-50%) rotate(5deg)!important}
+.book-stack .book-main{display:flex!important;flex:1!important;flex-direction:column!important;min-height:0}
+.book-stack .book-top h3{font-size:19px!important;line-height:1.12!important;margin-top:10px!important;max-width:220px!important}
+.book-stack .book-top>b{display:block!important}
+.book-stack .target{align-items:center!important;flex-direction:row!important;gap:6px!important;margin-bottom:8px!important}
+.book-stack .primary.slim{margin-top:auto!important;min-height:42px!important}
+
+@media(min-width:620px){.book-stack{grid-auto-columns:min(42%,286px)!important}}
+@media(max-width:380px){.book-stack{grid-auto-columns:78vw!important}.book-stack .reading-card{padding:16px 16px 90px!important}}
+
+/* Reading priority layout: lead card is wider; secondary cards share one size. */
+.book-stack{display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;gap:12px!important;overflow-x:auto!important;overflow-y:hidden!important}
+.book-stack .reading-card{flex:0 0 min(84vw,326px)!important;width:min(84vw,326px)!important}
+.book-stack .reading-card:nth-child(n+2){flex-basis:min(68vw,264px)!important;width:min(68vw,264px)!important}
+.book-stack .book-top{min-height:70px}
+.book-stack .target{min-height:28px}
+.book-stack .primary.slim{bottom:92px!important;left:17px!important;margin:0!important;position:absolute!important;right:17px!important;width:auto!important;z-index:4}
+
+/* Theme-related abstract marks replace the previous character illustration. */
+.book-stack .reading-card:after{background:
+  radial-gradient(circle at 18% 30%,color-mix(in srgb,var(--day-accent) 28%,transparent) 0 3px,transparent 4px),
+  radial-gradient(circle at 72% 64%,color-mix(in srgb,var(--day-accent) 22%,transparent) 0 4px,transparent 5px),
+  linear-gradient(145deg,color-mix(in srgb,var(--day-soft) 72%,white),var(--day-pale))!important}
+.book-stack .reading-card:before{background:transparent!important;border:3px solid color-mix(in srgb,var(--day-accent) 62%,transparent)!important;border-bottom-color:transparent!important;border-left-color:transparent!important;border-radius:50%!important;clip-path:none!important;height:42px!important;opacity:.75;transform:translateX(-50%) rotate(-22deg)!important;width:86px!important}
+.book-stack .reading-card:nth-child(2):after{background:repeating-linear-gradient(14deg,transparent 0 10px,rgba(198,176,59,.13) 11px 13px),linear-gradient(145deg,#f4f1bd,#fbf8dc)!important}
+.book-stack .reading-card:nth-child(2):before{border-color:rgba(176,150,42,.55)!important;border-left-color:transparent!important;transform:translateX(-50%) rotate(18deg)!important}
+.book-stack .reading-card:nth-child(3):after{background:repeating-radial-gradient(ellipse at 45% 120%,transparent 0 11px,rgba(127,91,165,.12) 12px 15px),linear-gradient(145deg,#e7daf1,#f5eef9)!important}
+.book-stack .reading-card:nth-child(3):before{border-color:rgba(132,91,173,.5)!important;border-bottom-color:transparent!important;transform:translateX(-50%) rotate(-8deg)!important}
+
+@media(min-width:620px){
+  .book-stack .reading-card{flex-basis:326px!important;width:326px!important}
+  .book-stack .reading-card:nth-child(n+2){flex-basis:264px!important;width:264px!important}
+}
+
+/* Compact reading action directly below the page count. */
+.book-stack{cursor:grab;overscroll-behavior-x:contain;scroll-behavior:smooth;touch-action:pan-x}
+.book-stack:active{cursor:grabbing}
+.book-stack .primary.slim{align-self:flex-start!important;bottom:auto!important;flex:0 0 auto!important;font-size:10.5px!important;left:auto!important;margin:4px 0 0!important;min-height:44px!important;padding:0 13px!important;position:static!important;right:auto!important;width:max-content!important}
+.book-stack .primary.slim svg{height:13px;width:13px}
+.book-stack .book-top{height:76px!important;min-height:76px!important;overflow:hidden}
+.book-stack .target{height:28px!important;min-height:28px!important}
+
+/* Pantone-inspired organic artwork; geometry only, layout remains unchanged. */
+.book-stack .reading-card:after{
+  background:
+    radial-gradient(ellipse 54% 110% at -8% 28%,color-mix(in srgb,var(--day-accent) 78%,#385e58) 0 52%,transparent 53%),
+    radial-gradient(ellipse 46% 120% at 108% 82%,color-mix(in srgb,var(--day-accent) 72%,#385e58) 0 48%,transparent 49%),
+    linear-gradient(115deg,color-mix(in srgb,var(--day-soft) 86%,white),var(--day-pale))!important
+}
+.book-stack .reading-card:before{
+  background:color-mix(in srgb,var(--day-accent) 56%,var(--day-soft))!important;
+  border:0!important;
+  border-radius:58% 42% 64% 36% / 44% 62% 38% 56%!important;
+  bottom:-21px!important;
+  clip-path:none!important;
+  height:116px!important;
+  left:50%!important;
+  opacity:.92!important;
+  transform:translateX(-50%) rotate(-13deg)!important;
+  width:68px!important
+}
+.book-stack .reading-card:nth-child(2):after{
+  background:
+    radial-gradient(ellipse 60% 54% at 50% 16%,#e88bb6 0 43%,transparent 44%),
+    radial-gradient(ellipse 76% 72% at 50% 112%,#d96da6 0 57%,transparent 58%),
+    linear-gradient(145deg,#7650a2,#8d5cb5)!important
+}
+.book-stack .reading-card:nth-child(2):before{
+  background:#ef9fc4!important;
+  border-radius:50%!important;
+  bottom:25px!important;
+  height:34px!important;
+  transform:translateX(-50%)!important;
+  width:34px!important
+}
+.book-stack .reading-card:nth-child(3):after{
+  background:
+    radial-gradient(ellipse 32% 95% at 10% 108%,#ef4f9b 0 64%,transparent 65%),
+    radial-gradient(ellipse 28% 112% at 38% 116%,#e72d8a 0 66%,transparent 67%),
+    radial-gradient(ellipse 30% 100% at 72% 114%,#f06aa9 0 62%,transparent 63%),
+    linear-gradient(145deg,#82418f,#9b4c9e)!important
+}
+.book-stack .reading-card:nth-child(3):before{
+  background:#f23890!important;
+  border-radius:72% 28% 68% 32% / 82% 55% 45% 18%!important;
+  bottom:-24px!important;
+  height:112px!important;
+  left:52%!important;
+  transform:translateX(-50%) rotate(19deg)!important;
+  width:42px!important
+}
+
+/* Keep every foreground motif fully inside the 76px color footer. */
+.book-stack .reading-card:before{
+  bottom:4px!important;
+  height:66px!important;
+  max-height:66px!important;
+  width:54px!important
+}
+.book-stack .reading-card:nth-child(2):before{
+  bottom:22px!important;
+  height:32px!important;
+  max-height:32px!important;
+  width:32px!important
+}
+.book-stack .reading-card:nth-child(3):before{
+  bottom:2px!important;
+  height:70px!important;
+  max-height:70px!important;
+  width:38px!important
+}
+
+/* Each footer inherits the semantic color family of its type badge. */
+.reading-card:has(.type-badge.peach){--type-accent:#e78f79;--type-soft:#f3d7ce;--type-pale:#fae9e3;--type-deep:#b95f55}
+.reading-card:has(.type-badge.lilac){--type-accent:#9d82cf;--type-soft:#ded7f4;--type-pale:#eeeaf9;--type-deep:#684b9c}
+.reading-card:has(.type-badge.sage){--type-accent:#8baa70;--type-soft:#dce5ce;--type-pale:#edf3e5;--type-deep:#5d784c}
+.reading-card:has(.type-badge.sand){--type-accent:#c49a66;--type-soft:#e6ddd0;--type-pale:#f3ece3;--type-deep:#876340}
+.reading-card:has(.type-badge.rose){--type-accent:#ce8298;--type-soft:#efd6dc;--type-pale:#f8e8ec;--type-deep:#94566a}
+.reading-card:has(.type-badge.blue){--type-accent:#73a8bd;--type-soft:#d5e2e8;--type-pale:#eaf2f5;--type-deep:#4d7e92}
+.book-stack .reading-card:after{
+  background:
+    radial-gradient(ellipse 54% 110% at -8% 28%,var(--type-deep) 0 52%,transparent 53%),
+    radial-gradient(ellipse 46% 120% at 108% 82%,var(--type-accent) 0 48%,transparent 49%),
+    linear-gradient(115deg,var(--type-soft),var(--type-pale))!important
+}
+.book-stack .reading-card:before{background:color-mix(in srgb,var(--type-accent) 74%,var(--type-soft))!important}
+.book-stack .reading-card:nth-child(2):after{
+  background:
+    radial-gradient(ellipse 60% 54% at 50% 16%,var(--type-accent) 0 43%,transparent 44%),
+    radial-gradient(ellipse 76% 72% at 50% 112%,var(--type-deep) 0 57%,transparent 58%),
+    linear-gradient(145deg,var(--type-soft),var(--type-pale))!important
+}
+.book-stack .reading-card:nth-child(2):before{background:color-mix(in srgb,var(--type-accent) 62%,white)!important}
+.book-stack .reading-card:nth-child(3):after{
+  background:
+    radial-gradient(ellipse 32% 95% at 10% 108%,var(--type-accent) 0 64%,transparent 65%),
+    radial-gradient(ellipse 28% 112% at 38% 116%,var(--type-deep) 0 66%,transparent 67%),
+    radial-gradient(ellipse 30% 100% at 72% 114%,color-mix(in srgb,var(--type-accent) 72%,white) 0 62%,transparent 63%),
+    linear-gradient(145deg,var(--type-soft),var(--type-pale))!important
+}
+.book-stack .reading-card:nth-child(3):before{background:var(--type-accent)!important}
+
+/* Professional / middle card: earthy ochre with flowing contour lines. */
+.type-badge.sage{background:#ead8ad!important;color:#5e4926!important}
+.reading-card:has(.type-badge.sage){--type-accent:#c29a54;--type-soft:#dfc58e;--type-pale:#f0dfb8;--type-deep:#8f682f}
+.book-stack .reading-card:nth-child(2):has(.type-badge.sage):after{
+  background:
+    radial-gradient(ellipse 112% 188% at -12% 126%,transparent 0 21%,#9d7436 22% 29%,transparent 30% 40%,#b28643 41% 48%,transparent 49% 59%,#c49a55 60% 67%,transparent 68%),
+    radial-gradient(ellipse 96% 145% at 112% -48%,transparent 0 24%,rgba(143,104,47,.55) 25% 32%,transparent 33% 46%,rgba(178,134,67,.45) 47% 54%,transparent 55%),
+    linear-gradient(145deg,#d8b978,#eed9a8)!important
+}
+.book-stack .reading-card:nth-child(2):has(.type-badge.sage):before{display:none!important}
+
+/* Visually slimmer action while preserving a 44px touch target. */
+.book-stack .primary.slim{
+  border-radius:10px!important;
+  height:36px!important;
+  line-height:1!important;
+  min-height:36px!important;
+  padding:0 11px!important;
+  position:relative!important
+}
+.book-stack .primary.slim:after{
+  content:'';
+  inset:-4px 0;
+  position:absolute
+}
+
+/* Plans reuse the same three type-linked artwork footers as Today. */
+.plan-list article{overflow:hidden!important;padding-bottom:96px!important;position:relative!important}
+.plan-list article:has(.type-badge.peach){--plan-accent:#e78f79;--plan-soft:#f3d7ce;--plan-pale:#fae9e3;--plan-deep:#b95f55}
+.plan-list article:has(.type-badge.sage){--plan-accent:#c29a54;--plan-soft:#dfc58e;--plan-pale:#f0dfb8;--plan-deep:#8f682f}
+.plan-list article:has(.type-badge.lilac){--plan-accent:#9d82cf;--plan-soft:#ded7f4;--plan-pale:#eeeaf9;--plan-deep:#684b9c}
+.plan-list article:has(.type-badge.sand){--plan-accent:#c49a66;--plan-soft:#e6ddd0;--plan-pale:#f3ece3;--plan-deep:#876340}
+.plan-list article:has(.type-badge.rose){--plan-accent:#ce8298;--plan-soft:#efd6dc;--plan-pale:#f8e8ec;--plan-deep:#94566a}
+.plan-list article:has(.type-badge.blue){--plan-accent:#73a8bd;--plan-soft:#d5e2e8;--plan-pale:#eaf2f5;--plan-deep:#4d7e92}
+.plan-list article>.plan-date,.plan-list article>.plan-body{position:relative;z-index:2}
+.plan-list article:after{background:radial-gradient(ellipse 54% 110% at -8% 28%,var(--plan-deep) 0 52%,transparent 53%),radial-gradient(ellipse 46% 120% at 108% 82%,var(--plan-accent) 0 48%,transparent 49%),linear-gradient(115deg,var(--plan-soft),var(--plan-pale));border-radius:16px 16px 20px 20px;bottom:0;content:'';height:76px;left:0;position:absolute;width:100%;z-index:0}
+.plan-list article:before{background:color-mix(in srgb,var(--plan-accent) 74%,var(--plan-soft));border-radius:58% 42% 64% 36% / 44% 62% 38% 56%;bottom:4px;content:'';height:66px;left:50%;position:absolute;transform:translateX(-50%) rotate(-13deg);width:54px;z-index:1}
+.plan-list article:nth-child(2):after{background:radial-gradient(ellipse 112% 188% at -12% 126%,transparent 0 21%,var(--plan-deep) 22% 29%,transparent 30% 40%,var(--plan-accent) 41% 48%,transparent 49% 59%,color-mix(in srgb,var(--plan-accent) 72%,white) 60% 67%,transparent 68%),radial-gradient(ellipse 96% 145% at 112% -48%,transparent 0 24%,color-mix(in srgb,var(--plan-deep) 55%,transparent) 25% 32%,transparent 33% 46%,color-mix(in srgb,var(--plan-accent) 45%,transparent) 47% 54%,transparent 55%),linear-gradient(145deg,var(--plan-soft),var(--plan-pale))}
+.plan-list article:nth-child(2):before{display:none}
+.plan-list article:nth-child(3):after{background:radial-gradient(ellipse 32% 95% at 10% 108%,var(--plan-accent) 0 64%,transparent 65%),radial-gradient(ellipse 28% 112% at 38% 116%,var(--plan-deep) 0 66%,transparent 67%),radial-gradient(ellipse 30% 100% at 72% 114%,color-mix(in srgb,var(--plan-accent) 72%,white) 0 62%,transparent 63%),linear-gradient(145deg,var(--plan-soft),var(--plan-pale))}
+.plan-list article:nth-child(3):before{background:var(--plan-accent);border-radius:72% 28% 68% 32% / 82% 55% 45% 18%;bottom:2px;height:70px;transform:translateX(-50%) rotate(19deg);width:38px}
+
+/* Compact Plans artwork strip. */
+.plan-list article{padding-bottom:64px!important}
+.plan-list article:after{height:44px!important}
+.plan-list article:before{bottom:3px!important;height:36px!important;width:32px!important}
+.plan-list article:nth-child(3):before{bottom:2px!important;height:40px!important;width:24px!important}
+.plan-list article:after{border-radius:0 0 20px 20px!important}
+.book-stack .reading-card:after{border-radius:0 0 20px 20px!important}
+
+/* Lilac artwork: continuous cream-and-purple flowing lines. */
+.book-stack .reading-card:has(.type-badge.lilac):after,
+.plan-list article:has(.type-badge.lilac):after{
+  background-color:#896ab5!important;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20240%2080'%3E%3Crect%20width='240'%20height='80'%20fill='%23896ab5'/%3E%3Cg%20fill='none'%20stroke='%23eee7f7'%20stroke-width='14'%20stroke-linecap='round'%3E%3Cpath%20d='M-25%2014%20C18%20-8%2038%2055%2082%2028%20S142%208%20170%2046%20S222%2088%20266%2044'/%3E%3Cpath%20d='M-18%2070%20C20%2040%2050%2094%2090%2060%20S145%2032%20182%2068%20S230%2092%20260%2072'/%3E%3Cpath%20d='M18%20-14%20C36%2018%2062%20-4%2084%2010%20S118%2046%20138%20-10'/%3E%3C/g%3E%3C/svg%3E")!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  background-size:cover!important
+}
+.book-stack .reading-card:has(.type-badge.lilac):before,
+.plan-list article:has(.type-badge.lilac):before{display:none!important}
+
+/* Insights summary cards use the app's semantic palette and abstract artwork. */
+.stat-grid>div{border:0!important;height:177px!important;min-height:177px!important;overflow:hidden!important;padding:18px!important;position:relative!important}
+.stat-grid>div>*{position:relative;z-index:2}
+.stat-grid>div b{color:#211e1b!important;font-size:24px!important;margin-top:28px}
+.stat-grid>div span{color:#514b46!important;font-size:10px!important;font-weight:600}
+.stat-grid>div svg{color:#292521!important;z-index:3}
+.stat-grid>div:before,.stat-grid>div:after{content:'';pointer-events:none;position:absolute;z-index:0}
+.stat-grid>div:nth-child(1){background:#f3d7ce!important}
+.stat-grid>div:nth-child(1):before{background:#e78f79;border-radius:54% 46% 58% 42%;height:82px;right:-25px;top:-24px;transform:rotate(18deg);width:88px}
+.stat-grid>div:nth-child(1):after{border:12px solid rgba(185,95,85,.28);border-radius:50%;bottom:-38px;height:86px;left:-28px;width:86px}
+.stat-grid>div:nth-child(2){background:#dfc58e!important}
+.stat-grid>div:nth-child(2):before{background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20160%20132'%3E%3Cg%20fill='none'%20stroke='%239d7436'%20stroke-width='12'%20stroke-linecap='round'%20opacity='.42'%3E%3Cpath%20d='M-20%2020%20C25%20-8%2032%2072%2074%2038%20S124%2010%20182%2052'/%3E%3Cpath%20d='M-12%20104%20C22%2060%2060%20130%2096%2088%20S138%2054%20178%2092'/%3E%3C/g%3E%3C/svg%3E");background-position:center;background-repeat:no-repeat;background-size:cover;inset:0}
+.stat-grid>div:nth-child(2):after{display:none}
+.stat-grid>div:nth-child(3){background:#ded7f4!important}
+.stat-grid>div:nth-child(3):before{background:#9d82cf;border-radius:48% 52% 38% 62% / 61% 39% 61% 39%;height:88px;right:-28px;top:35px;transform:rotate(-18deg);width:98px}
+.stat-grid>div:nth-child(3):after{border:14px solid rgba(104,75,156,.2);border-radius:50%;height:78px;left:-32px;top:-35px;width:78px}
+.stat-grid>div:nth-child(4){background:#d5e2e8!important}
+.stat-grid>div:nth-child(4):before{background:#73a8bd;border-radius:68% 32% 58% 42% / 43% 62% 38% 57%;bottom:-28px;height:92px;right:-14px;transform:rotate(12deg);width:112px}
+.stat-grid>div:nth-child(4):after{background:#4d7e92;border-radius:50%;height:34px;left:-10px;opacity:.3;top:20px;width:34px}
+
+/* Give every Insights metric its own unmistakable pattern language. */
+.stat-grid>div:nth-child(1):before,
+.stat-grid>div:nth-child(3):before,
+.stat-grid>div:nth-child(4):before{
+  border:0!important;
+  border-radius:0!important;
+  bottom:0!important;
+  height:auto!important;
+  left:0!important;
+  opacity:1!important;
+  right:0!important;
+  top:0!important;
+  transform:none!important;
+  width:auto!important;
+}
+
+/* Time — concentric rings. */
+.stat-grid>div:nth-child(1):before{
+  background:repeating-radial-gradient(circle at 110% 112%,transparent 0 15px,rgba(185,95,85,.34) 16px 24px,transparent 25px 39px)!important;
+}
+.stat-grid>div:nth-child(1):after{display:none!important}
+
+/* Books — architectural arches. */
+.stat-grid>div:nth-child(3):before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 177'%3E%3Cg fill='none' stroke='%239d82cf' stroke-width='10' opacity='.42'%3E%3Cpath d='M18 190V88C18 32 142 32 142 88v102'/%3E%3Cpath d='M43 190V93c0-34 74-34 74 0v97'/%3E%3Cpath d='M68 190V98c0-12 24-12 24 0v92'/%3E%3C/g%3E%3C/svg%3E")!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  background-size:cover!important;
+}
+.stat-grid>div:nth-child(3):after{display:none!important}
+
+/* Daily average — a clipped dot matrix. */
+.stat-grid>div:nth-child(4):before{
+  background-image:radial-gradient(circle,rgba(77,126,146,.5) 0 2.5px,transparent 3px)!important;
+  background-position:8px 8px!important;
+  background-size:18px 18px!important;
+  clip-path:ellipse(72% 60% at 88% 92%)!important;
+}
+.stat-grid>div:nth-child(4):after{display:none!important}
+
+/* Insights — four playful geometric faces, without changing card proportions. */
+.stat-grid>div:nth-child(1):before,
+.stat-grid>div:nth-child(2):before,
+.stat-grid>div:nth-child(3):before,
+.stat-grid>div:nth-child(4):before{
+  background-color:transparent!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  background-size:100% 100%!important;
+  border:0!important;
+  border-radius:0!important;
+  bottom:0!important;
+  height:auto!important;
+  inset:0!important;
+  opacity:1!important;
+  transform:none!important;
+  width:auto!important;
+}
+
+/* Reading time — calm, sleepy face. */
+.stat-grid>div:nth-child(1):before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 177'%3E%3Cpath fill='%23e78f79' d='M83 91c28-20 64-7 71 19v67H51c-8-31 3-66 32-86Z'/%3E%3Cg fill='%23fff4e5'%3E%3Cellipse cx='93' cy='116' rx='18' ry='14'/%3E%3Cellipse cx='126' cy='116' rx='18' ry='14'/%3E%3C/g%3E%3Cg fill='%234f4843'%3E%3Ccircle cx='88' cy='115' r='5'/%3E%3Ccircle cx='121' cy='115' r='5'/%3E%3C/g%3E%3Cpath d='M82 148c18-5 37-5 55 0' fill='none' stroke='%23b95f55' stroke-width='8' stroke-linecap='round'/%3E%3C/svg%3E")!important;
+}
+
+/* Pages — mischievous eyes and striped grin. */
+.stat-grid>div:nth-child(2):before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 177'%3E%3Cpath fill='%23c59c4b' d='M25 177V95c17-21 91-28 123 3v79Z'/%3E%3Cpath d='M48 112c8 11 21 11 29-1M93 111c8 11 21 11 29-1' fill='none' stroke='%234b4134' stroke-width='7' stroke-linecap='round'/%3E%3Crect x='43' y='131' width='83' height='32' rx='16' fill='%23fff1cf'/%3E%3Cg stroke='%23c59c4b' stroke-width='4'%3E%3Cpath d='M57 133v28M72 132v31M87 132v31M102 132v29M117 135v23'/%3E%3C/g%3E%3C/svg%3E")!important;
+}
+
+/* Finished books — cheerful winking face. */
+.stat-grid>div:nth-child(3):before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 177'%3E%3Cpath fill='%239d82cf' d='M53 84c23-20 76-13 94 18v75H28c-2-39 3-72 25-93Z'/%3E%3Cellipse cx='69' cy='116' rx='16' ry='13' fill='%23f7f1e8'/%3E%3Ccircle cx='67' cy='116' r='5' fill='%23453b50'/%3E%3Cpath d='M104 115c10 7 19 5 25-3' fill='none' stroke='%23453b50' stroke-width='7' stroke-linecap='round'/%3E%3Cpath d='M65 146c17 15 39 14 55-2' fill='none' stroke='%23f7f1e8' stroke-width='8' stroke-linecap='round'/%3E%3C/svg%3E")!important;
+}
+
+/* Daily average — surprised face. */
+.stat-grid>div:nth-child(4):before{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 177'%3E%3Cpath fill='%2373a8bd' d='M35 177V99c13-30 91-36 121 2v76Z'/%3E%3Cg fill='%23f5eee3'%3E%3Cellipse cx='72' cy='118' rx='19' ry='15'/%3E%3Cellipse cx='116' cy='118' rx='19' ry='15'/%3E%3C/g%3E%3Cg fill='%233c5965'%3E%3Ccircle cx='77' cy='118' r='6'/%3E%3Ccircle cx='111' cy='118' r='6'/%3E%3C/g%3E%3Cpath d='M83 151c6-17 27-18 35 0-9 12-26 12-35 0Z' fill='%233c5965'/%3E%3Cpath d='M90 154c7-5 15-5 22 0' fill='none' stroke='%23e78f79' stroke-width='5' stroke-linecap='round'/%3E%3C/svg%3E")!important;
+}
+.stat-grid>div:nth-child(1):after,
+.stat-grid>div:nth-child(2):after,
+.stat-grid>div:nth-child(3):after,
+.stat-grid>div:nth-child(4):after{display:none!important}
+
+/* Compact Insights cards: larger figures on the left, characters on the right. */
+.stat-grid>div{
+  height:152px!important;
+  min-height:152px!important;
+  padding:16px!important;
+}
+.stat-grid>div b{
+  font-size:31px!important;
+  letter-spacing:-1.2px!important;
+  line-height:1!important;
+  margin-top:20px!important;
+  max-width:62%!important;
+}
+.stat-grid>div span{max-width:58%!important}
+.stat-grid>div:nth-child(1):before,
+.stat-grid>div:nth-child(2):before,
+.stat-grid>div:nth-child(3):before,
+.stat-grid>div:nth-child(4):before{
+  background-position:right bottom!important;
+  background-size:124px 148px!important;
+}
+
+/* Swap the visual block languages of Library and Plans. */
+.plan-list article{
+  overflow:visible!important;
+  padding:16px!important;
+}
+.plan-list article:before,
+.plan-list article:after{display:none!important}
+.plan-list .type-badge.icon-only{
+  border-radius:12px!important;
+  padding:10px!important;
+}
+
+.shelf-list article{
+  overflow:hidden!important;
+  padding:16px 16px 64px!important;
+  position:relative!important;
+}
+.shelf-list article:has(.type-badge.peach){--library-accent:#e78f79;--library-soft:#f3d7ce;--library-pale:#fae9e3;--library-deep:#b95f55}
+.shelf-list article:has(.type-badge.sage){--library-accent:#c29a54;--library-soft:#dfc58e;--library-pale:#f0dfb8;--library-deep:#8f682f}
+.shelf-list article:has(.type-badge.lilac){--library-accent:#9d82cf;--library-soft:#ded7f4;--library-pale:#eeeaf9;--library-deep:#684b9c}
+.shelf-list article:has(.type-badge.sand){--library-accent:#c49a66;--library-soft:#e6ddd0;--library-pale:#f3ece3;--library-deep:#876340}
+.shelf-list article:has(.type-badge.rose){--library-accent:#ce8298;--library-soft:#efd6dc;--library-pale:#f8e8ec;--library-deep:#94566a}
+.shelf-list article:has(.type-badge.blue){--library-accent:#73a8bd;--library-soft:#d5e2e8;--library-pale:#eaf2f5;--library-deep:#4d7e92}
+.shelf-list article>.type-badge{
+  opacity:0!important;
+  pointer-events:none!important;
+  position:absolute!important;
+}
+.shelf-list article>.shelf-info,
+.shelf-list article>.icon-btn{position:relative;z-index:2}
+.shelf-list article:after{
+  background:
+    radial-gradient(ellipse 54% 110% at -8% 28%,var(--library-deep) 0 52%,transparent 53%),
+    radial-gradient(ellipse 46% 120% at 108% 82%,var(--library-accent) 0 48%,transparent 49%),
+    linear-gradient(115deg,var(--library-soft),var(--library-pale));
+  border-radius:0 0 20px 20px;
+  bottom:0;
+  content:'';
+  height:44px;
+  left:0;
+  position:absolute;
+  width:100%;
+  z-index:0;
+}
+.shelf-list article:before{
+  background:color-mix(in srgb,var(--library-accent) 74%,var(--library-soft));
+  border-radius:58% 42% 64% 36% / 44% 62% 38% 56%;
+  bottom:3px;
+  content:'';
+  height:36px;
+  left:50%;
+  position:absolute;
+  transform:translateX(-50%) rotate(-13deg);
+  width:32px;
+  z-index:1;
+}
+.shelf-list article:nth-child(2):after{
+  background:
+    radial-gradient(ellipse 112% 188% at -12% 126%,transparent 0 21%,var(--library-deep) 22% 29%,transparent 30% 40%,var(--library-accent) 41% 48%,transparent 49% 59%,color-mix(in srgb,var(--library-accent) 72%,white) 60% 67%,transparent 68%),
+    linear-gradient(145deg,var(--library-soft),var(--library-pale));
+}
+.shelf-list article:nth-child(2):before{display:none!important}
+.shelf-list article:nth-child(3):after{
+  background:
+    radial-gradient(ellipse 32% 95% at 10% 108%,var(--library-accent) 0 64%,transparent 65%),
+    radial-gradient(ellipse 28% 112% at 38% 116%,var(--library-deep) 0 66%,transparent 67%),
+    radial-gradient(ellipse 30% 100% at 72% 114%,color-mix(in srgb,var(--library-accent) 72%,white) 0 62%,transparent 63%),
+    linear-gradient(145deg,var(--library-soft),var(--library-pale));
+}
+.shelf-list article:nth-child(3):before{
+  background:var(--library-accent);
+  border-radius:72% 28% 68% 32% / 82% 55% 45% 18%;
+  bottom:2px;
+  height:40px;
+  transform:translateX(-50%) rotate(19deg);
+  width:24px;
+}
+.shelf-list article:has(.type-badge.lilac):after{
+  background-color:#896ab5!important;
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20240%2080'%3E%3Crect%20width='240'%20height='80'%20fill='%23896ab5'/%3E%3Cg%20fill='none'%20stroke='%23eee7f7'%20stroke-width='14'%20stroke-linecap='round'%3E%3Cpath%20d='M-25%2014%20C18%20-8%2038%2055%2082%2028%20S142%208%20170%2046%20S222%2088%20266%2044'/%3E%3Cpath%20d='M-18%2070%20C20%2040%2050%2094%2090%2060%20S145%2032%20182%2068%20S230%2092%20260%2072'/%3E%3C/g%3E%3C/svg%3E")!important;
+  background-position:center!important;
+  background-size:cover!important;
+}
+.shelf-list article:has(.type-badge.lilac):before{display:none!important}
+
+/* Library restored to the pre-swap compact icon-card treatment. */
+.shelf-list article{
+  overflow:visible!important;
+  padding:16px!important;
+}
+.shelf-list article:before,
+.shelf-list article:after{display:none!important}
+.shelf-list article>.type-badge{
+  opacity:1!important;
+  pointer-events:auto!important;
+  position:static!important;
+}
+
+/* Library uses solid, type-linked color blocks with no decorative pattern. */
+.shelf-list article:has(.type-badge.peach){background:#f3d7ce!important}
+.shelf-list article:has(.type-badge.sage){background:#dfc58e!important}
+.shelf-list article:has(.type-badge.lilac){background:#ded7f4!important}
+.shelf-list article:has(.type-badge.sand){background:#e6ddd0!important}
+.shelf-list article:has(.type-badge.rose){background:#efd6dc!important}
+.shelf-list article:has(.type-badge.blue){background:#d5e2e8!important}
+.shelf-list article>.type-badge.icon-only{
+  background:rgba(255,255,255,.48)!important;
+  color:#28231f!important;
+}
+.shelf-list article .line{background:rgba(255,255,255,.55)!important}
+.shelf-list article .icon-btn{color:#403a35!important}
+
+
+/* Library type colors become soft full-card surfaces instead of footer strips. */
+.shelf-list article{
+  padding:16px!important;
+}
+.shelf-list article:has(.type-badge.peach){background:#faeeea!important}
+.shelf-list article:has(.type-badge.sage){background:#f5ecd9!important}
+.shelf-list article:has(.type-badge.lilac){background:#f2eef9!important}
+.shelf-list article:has(.type-badge.sand){background:#f6f0e9!important}
+.shelf-list article:has(.type-badge.rose){background:#f8edf0!important}
+.shelf-list article:has(.type-badge.blue){background:#edf4f6!important}
+.shelf-list article:before,
+.shelf-list article:after{display:none!important}
+.shelf-list article>.type-badge{
+  opacity:1!important;
+  pointer-events:auto!important;
+  position:static!important;
+}
+
+/* A contained, type-colored abstract motif sits on the right of each Library card. */
+.shelf-list article:after{
+  background:
+    radial-gradient(ellipse 68% 44% at 85% 20%,transparent 0 47%,color-mix(in srgb,var(--library-accent) 42%,transparent) 49% 56%,transparent 58%),
+    radial-gradient(ellipse 82% 58% at 94% 70%,transparent 0 46%,color-mix(in srgb,var(--library-deep) 28%,transparent) 48% 55%,transparent 57%),
+    radial-gradient(circle at 62% 50%,color-mix(in srgb,var(--library-accent) 26%,transparent) 0 7px,transparent 8px)!important;
+  border-radius:0 20px 20px 0!important;
+  bottom:0!important;
+  display:block!important;
+  height:100%!important;
+  left:auto!important;
+  opacity:1!important;
+  pointer-events:none!important;
+  right:0!important;
+  top:0!important;
+  width:104px!important;
+  z-index:0!important;
+}
+.shelf-list article:before{display:none!important}
+.shelf-list article>.shelf-info{padding-right:20px!important}
+.shelf-list article:nth-child(2):after,
+.shelf-list article:nth-child(3):after,
+.shelf-list article:has(.type-badge.lilac):after{
+  background:
+    radial-gradient(ellipse 68% 44% at 85% 20%,transparent 0 47%,color-mix(in srgb,var(--library-accent) 42%,transparent) 49% 56%,transparent 58%),
+    radial-gradient(ellipse 82% 58% at 94% 70%,transparent 0 46%,color-mix(in srgb,var(--library-deep) 28%,transparent) 48% 55%,transparent 57%),
+    radial-gradient(circle at 62% 50%,color-mix(in srgb,var(--library-accent) 26%,transparent) 0 7px,transparent 8px)!important;
+}
+
+/* Extend the motif across the complete card as a quiet background texture. */
+.shelf-list article:after,
+.shelf-list article:nth-child(2):after,
+.shelf-list article:nth-child(3):after,
+.shelf-list article:has(.type-badge.lilac):after{
+  background:
+    radial-gradient(ellipse 58% 125% at -8% 55%,transparent 0 48%,color-mix(in srgb,var(--library-accent) 18%,transparent) 49% 56%,transparent 57% 68%,color-mix(in srgb,var(--library-deep) 12%,transparent) 69% 75%,transparent 76%),
+    radial-gradient(ellipse 62% 135% at 108% 38%,transparent 0 45%,color-mix(in srgb,var(--library-accent) 20%,transparent) 46% 54%,transparent 55% 66%,color-mix(in srgb,var(--library-deep) 11%,transparent) 67% 73%,transparent 74%),
+    linear-gradient(118deg,transparent 0 42%,color-mix(in srgb,var(--library-accent) 7%,transparent) 43% 57%,transparent 58%)!important;
+  border-radius:20px!important;
+  width:100%!important;
+}
+.shelf-list article>.shelf-info{padding-right:0!important}
+
+/* Exact visual rollback to the state before Plans and Library were swapped. */
+.plan-list article{
+  overflow:hidden!important;
+  padding:16px 16px 64px!important;
+  position:relative!important;
+}
+.plan-list article:before,
+.plan-list article:after{display:block!important}
+.plan-list article:nth-child(2):before,
+.plan-list article:has(.type-badge.lilac):before{display:none!important}
+
+.shelf-list article{
+  background:#fff!important;
+  overflow:visible!important;
+  padding:16px!important;
+}
+.shelf-list article:before,
+.shelf-list article:after{display:none!important}
+.shelf-list article>.shelf-info{padding-right:0!important}
+.shelf-list article>.type-badge{
+  opacity:1!important;
+  pointer-events:auto!important;
+  position:static!important;
+}
+.shelf-list article>.type-badge.peach{background:var(--journal-peach)!important}
+.shelf-list article>.type-badge.lilac{background:var(--journal-lilac)!important}
+.shelf-list article>.type-badge.sage{background:var(--journal-sage)!important}
+.shelf-list article>.type-badge.sand{background:var(--journal-sand)!important}
+.shelf-list article>.type-badge.rose{background:var(--journal-rose)!important}
+.shelf-list article>.type-badge.blue{background:var(--journal-blue)!important}
+.shelf-list article .line{background:#f0eeeb!important}
+.shelf-list article .icon-btn{color:#6f7c77!important}
+
+/* Library cards are always clean white surfaces; type color stays on the icon only. */
+.shelf-list>article,
+.shelf-list>article:has(.type-badge.peach),
+.shelf-list>article:has(.type-badge.sage),
+.shelf-list>article:has(.type-badge.lilac),
+.shelf-list>article:has(.type-badge.sand),
+.shelf-list>article:has(.type-badge.rose),
+.shelf-list>article:has(.type-badge.blue){
+  background-color:#fff!important;
+  background-image:none!important;
+}
+.shelf-list>article:before,
+.shelf-list>article:after{display:none!important}
+
+/* Plans: existing artwork becomes a top title band; overall card ratio stays intact. */
+.plan-list article{
+  display:block!important;
+  padding:50px 16px 16px!important;
+}
+.plan-list article:after{
+  border-radius:20px 20px 0 0!important;
+  bottom:auto!important;
+  height:36px!important;
+  left:0!important;
+  top:0!important;
+}
+.plan-list article:before{
+  bottom:auto!important;
+  height:28px!important;
+  left:50%!important;
+  top:4px!important;
+  width:26px!important;
+}
+.plan-list article:nth-child(3):before{
+  bottom:auto!important;
+  height:30px!important;
+  top:3px!important;
+  width:20px!important;
+}
+.plan-list .plan-heading{
+  align-items:center;
+  display:flex;
+  gap:10px;
+  height:36px;
+  inset:0 14px auto;
+  min-width:0;
+  position:absolute;
+  z-index:3;
+}
+.plan-list .plan-heading .type-badge{
+  background:rgba(255,255,255,.52)!important;
+  flex:0 0 auto;
+  padding:3px 7px!important;
+}
+.plan-list .plan-month{
+  color:#332d27;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.08em;
+  margin-left:auto;
+  position:relative;
+  text-transform:uppercase;
+  z-index:2;
+}
+.plan-list .plan-details{
+  align-items:center;
+  display:flex;
+  gap:15px;
+  position:relative;
+  z-index:2;
+}
+.plan-list .plan-details .plan-body{flex:1;min-width:0}
+.plan-list .plan-details .plan-body>p{margin:0!important}
+
+/* Plans: three equal cards in one row; phones keep the row scrollable. */
+.plan-list{
+  align-items:stretch;
+  display:grid!important;
+  gap:10px!important;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
+.plan-list article{
+  height:100%;
+  min-width:0;
+}
+.plan-list .plan-details{
+  align-items:stretch;
+  flex-direction:column;
+  gap:10px;
+}
+.plan-list .plan-title{
+  align-items:center;
+  background:#faf7f2;
+  border-radius:14px;
+  display:flex;
+  min-height:50px;
+  padding:9px 10px;
+  width:100%;
+}
+.plan-list .plan-title h3{
+  display:-webkit-box;
+  font-size:15px!important;
+  line-height:1.25!important;
+  margin:0!important;
+  overflow:hidden;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
+}
+.plan-list .forecast{flex-wrap:wrap}
+
+@media (max-width:560px){
+  .plan-list{
+    grid-auto-columns:min(76vw,260px);
+    grid-auto-flow:column;
+    grid-template-columns:none;
+    overflow-x:auto;
+    overscroll-behavior-inline:contain;
+    padding-bottom:8px;
+    scroll-snap-type:inline mandatory;
+    scrollbar-width:none;
+  }
+  .plan-list::-webkit-scrollbar{display:none}
+  .plan-list article{scroll-snap-align:start}
+}
+
+/* Library: same card proportions, type-colored surfaces with restrained theme artwork. */
+.shelf-list>article{
+  overflow:hidden!important;
+  position:relative!important;
+}
+.shelf-list>article:has(.type-badge.peach){background-color:#fae9e3!important;background-image:none!important}
+.shelf-list>article:has(.type-badge.sage){background-color:#f0dfb8!important;background-image:none!important}
+.shelf-list>article:has(.type-badge.lilac){background-color:#eeeaf9!important;background-image:none!important}
+.shelf-list>article:has(.type-badge.sand){background-color:#f3ece3!important;background-image:none!important}
+.shelf-list>article:has(.type-badge.rose){background-color:#f8e8ec!important;background-image:none!important}
+.shelf-list>article:has(.type-badge.blue){background-color:#eaf2f5!important;background-image:none!important}
+.shelf-list>article>.type-badge,
+.shelf-list>article>.shelf-info,
+.shelf-list>article>.icon-btn{position:relative!important;z-index:2!important}
+.shelf-list>article>.type-badge.icon-only{background:rgba(255,255,255,.52)!important}
+.shelf-list>article:before{display:none!important}
+.shelf-list>article:after{
+  border-radius:0 20px 20px 0!important;
+  bottom:0!important;
+  content:''!important;
+  display:block!important;
+  height:100%!important;
+  left:auto!important;
+  opacity:1!important;
+  pointer-events:none!important;
+  position:absolute!important;
+  right:0!important;
+  top:0!important;
+  width:42%!important;
+  z-index:0!important;
+}
+/* Fiction — concentric story rings. */
+.shelf-list>article:has(.type-badge.peach):after{
+  background:repeating-radial-gradient(circle at 105% 52%,transparent 0 15px,rgba(185,95,85,.20) 16px 24px,transparent 25px 39px)!important;
+}
+/* Professional — layered growth forms. */
+.shelf-list>article:has(.type-badge.sage):after{
+  background:radial-gradient(ellipse 82% 72% at 92% 112%,rgba(143,104,47,.24) 0 58%,transparent 59%),radial-gradient(ellipse 62% 56% at 48% 108%,rgba(194,154,84,.22) 0 56%,transparent 57%)!important;
+}
+/* Language — connected conversational nodes. */
+.shelf-list>article:has(.type-badge.lilac):after{
+  background:radial-gradient(circle at 28% 28%,rgba(104,75,156,.24) 0 9px,transparent 10px),radial-gradient(circle at 76% 70%,rgba(104,75,156,.24) 0 13px,transparent 14px),linear-gradient(34deg,transparent 46%,rgba(157,130,207,.22) 47% 52%,transparent 53%)!important;
+}
+/* History — repeated architectural arches. */
+.shelf-list>article:has(.type-badge.sand):after{
+  background:repeating-radial-gradient(ellipse at 100% 112%,transparent 0 17px,rgba(135,99,64,.18) 18px 25px,transparent 26px 39px)!important;
+}
+/* Art — soft petal geometry. */
+.shelf-list>article:has(.type-badge.rose):after{
+  background:radial-gradient(ellipse 30% 62% at 66% 50%,rgba(148,86,106,.20) 0 58%,transparent 60%),radial-gradient(ellipse 58% 30% at 66% 50%,rgba(206,130,152,.24) 0 58%,transparent 60%)!important;
+}
+/* Science — orbital paths. */
+.shelf-list>article:has(.type-badge.blue):after{
+  background:radial-gradient(circle at 72% 48%,rgba(77,126,146,.30) 0 5px,transparent 6px),repeating-radial-gradient(ellipse at 72% 48%,transparent 0 15px,rgba(77,126,146,.17) 16px 19px,transparent 20px 31px)!important;
+}
+
+/* Crisp editorial SVG artwork replaces the softer gradient motifs. */
+.shelf-list>article:after{
+  background-position:right center!important;
+  background-repeat:no-repeat!important;
+  background-size:cover!important;
+  width:44%!important;
+}
+.shelf-list>article:has(.type-badge.peach):after{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 120'%3E%3Cg fill='none' stroke='%23b95f55' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' opacity='.28'%3E%3Cpath d='M30 26c25-8 46-2 60 15v58c-14-17-35-23-60-15Z'/%3E%3Cpath d='M150 26c-25-8-46-2-60 15v58c14-17 35-23 60-15Z'/%3E%3Cpath d='M44 42c15-3 27 0 36 8M136 42c-15-3-27 0-36 8M44 57c15-3 27 0 36 8M136 57c-15-3-27 0-36 8'/%3E%3C/g%3E%3C/svg%3E")!important;
+}
+.shelf-list>article:has(.type-badge.sage):after{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 120'%3E%3Cg fill='none' stroke='%238f682f' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' opacity='.25'%3E%3Cpath d='M24 98h132M38 98V73h28V52h29V30h38'/%3E%3Cpath d='m111 30 22 0 0 22'/%3E%3Cpath d='m94 68 39-38'/%3E%3Ccircle cx='38' cy='73' r='6'/%3E%3Ccircle cx='66' cy='52' r='6'/%3E%3Ccircle cx='95' cy='30' r='6'/%3E%3C/g%3E%3C/svg%3E")!important;
+}
+.shelf-list>article:has(.type-badge.lilac):after{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 120'%3E%3Cg fill='none' stroke='%23684b9c' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' opacity='.25'%3E%3Cpath d='M27 27h87a12 12 0 0 1 12 12v25a12 12 0 0 1-12 12H70L48 94l5-18H39a12 12 0 0 1-12-12Z'/%3E%3Cpath d='M73 83h65a12 12 0 0 0 12-12V50M48 46h58M48 58h38'/%3E%3C/g%3E%3C/svg%3E")!important;
+}
+.shelf-list>article:has(.type-badge.sand):after{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 120'%3E%3Cg fill='none' stroke='%23876340' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' opacity='.23'%3E%3Cpath d='M24 99h132M35 88V45M64 88V45M93 88V45M122 88V45M151 88V45M27 42h132L93 18Z'/%3E%3Cpath d='M30 99V88h126v11M44 56h11M73 56h11M102 56h11M131 56h11'/%3E%3C/g%3E%3C/svg%3E")!important;
+}
+.shelf-list>article:has(.type-badge.rose):after{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 120'%3E%3Cg fill='none' stroke='%2394566a' stroke-width='5' stroke-linecap='round' stroke-linejoin='round' opacity='.25'%3E%3Cpath d='M91 102C79 84 83 69 91 57c-18 7-36 2-46-12 16-8 31-6 43 4-3-18 4-32 18-42 10 14 11 30 4 44 16-10 32-10 48 0-12 14-28 19-46 12 8 15 5 30-7 45'/%3E%3Cpath d='M89 59c8 0 15-4 21-10M92 61c-7-2-13-7-17-14M92 61c6 5 10 12 11 20'/%3E%3C/g%3E%3C/svg%3E")!important;
+}
+.shelf-list>article:has(.type-badge.blue):after{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 120'%3E%3Cg fill='none' stroke='%234d7e92' stroke-width='4.5' opacity='.27'%3E%3Cellipse cx='100' cy='60' rx='68' ry='24'/%3E%3Cellipse cx='100' cy='60' rx='68' ry='24' transform='rotate(60 100 60)'/%3E%3Cellipse cx='100' cy='60' rx='68' ry='24' transform='rotate(-60 100 60)'/%3E%3C/g%3E%3Cg fill='%234d7e92' opacity='.35'%3E%3Ccircle cx='100' cy='60' r='8'/%3E%3Ccircle cx='34' cy='65' r='5'/%3E%3Ccircle cx='145' cy='27' r='5'/%3E%3Ccircle cx='143' cy='96' r='5'/%3E%3C/g%3E%3C/svg%3E")!important;
+}
+
+/* Locked theme pairs from the user's four pattern references; palette values stay unchanged. */
+/* Peach + layered organic blobs. */
+.shelf-list>article:has(.type-badge.peach):after{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 120'%3E%3Cpath fill='%23e78f79' d='M-18 42C9 8 36 5 62 28c20 18 24 39 52 31 25-7 42-2 74 28v47H-18Z'/%3E%3Cpath fill='%23b95f55' d='M74-18c30 5 44 20 38 39-7 23-30 27-51 16C40 26 45-7 74-18ZM129 76c24-12 53-4 66 18v35h-76c-10-22-6-44 10-53Z' opacity='.72'/%3E%3Cpath fill='%23fae9e3' d='M-15 83c24-21 48-25 69-12 23 14 37 15 59 1 16-10 36-7 50 9-26 28-55 42-91 42H-15Z'/%3E%3C/svg%3E")!important;
+}
+/* Ochre + branching organic cut-outs. */
+.shelf-list>article:has(.type-badge.sage):after{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 120'%3E%3Cg fill='%238f682f' opacity='.72'%3E%3Cpath d='M-20 24c29-18 47-15 58 7 8 16 20 17 31 4 14-17 30-17 46 1 12 14 26 13 41-3 10-10 26-10 45 2v28c-24 8-41 3-50-14-8-15-20-16-35-2-17 16-34 14-50-5-12-14-25-12-37 5-12 17-28 19-49 7Z'/%3E%3Cpath d='M-12 94c25-20 44-19 57 2 10 17 23 18 38 3 18-18 36-17 53 2 13 15 31 14 54-4v34H-12Z'/%3E%3C/g%3E%3C/svg%3E")!important;
+}
+/* Lilac + broad flowing ribbons. */
+.shelf-list>article:has(.type-badge.lilac):after{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 120'%3E%3Cg fill='none' stroke='%239d82cf' stroke-width='18' stroke-linecap='round' opacity='.7'%3E%3Cpath d='M-24 8c38 31 62 31 91 1s55-29 92 2 52 27 72 3'/%3E%3Cpath d='M-30 58c37-30 65-29 97 3s60 31 93-2 52-27 77-5'/%3E%3Cpath d='M-20 111c33-29 58-28 89 0s58 28 92-2 51-26 75-7'/%3E%3C/g%3E%3C/svg%3E")!important;
+}
+/* Blue + continuous rounded squiggles. */
+.shelf-list>article:has(.type-badge.blue):after{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 120'%3E%3Cg fill='none' stroke='%2373a8bd' stroke-width='9' stroke-linecap='round' stroke-linejoin='round' opacity='.62'%3E%3Cpath d='M-12 19c17-20 31 15 47-3s30 18 47-1 31 15 47-4 30 16 51-1'/%3E%3Cpath d='M-8 61c18-19 33 16 50-3s30 17 47-2 32 16 49-3 29 17 50-2'/%3E%3Cpath d='M-13 103c18-19 33 15 50-3s31 17 48-2 31 16 48-3 29 17 50-2'/%3E%3C/g%3E%3C/svg%3E")!important;
+}
+
+/* Library has a strict 2:1 split: solid theme surface, then patterned theme panel. */
+.shelf-list>article:after{
+  background-position:center!important;
+  background-size:cover!important;
+  width:33.333%!important;
+}
+
+/* Hard boundary from the annotated reference: no pattern may cross the 2/3 line. */
+body .app .shelf-list>article{
+  background-image:none!important;
+  overflow:hidden!important;
+}
+body .app .shelf-list>article:after{
+  bottom:0!important;
+  clip-path:inset(0)!important;
+  left:66.666%!important;
+  right:0!important;
+  top:0!important;
+  transform:none!important;
+  width:auto!important;
+}
+body .app .shelf-list>article .shelf-info .line{
+  max-width:66%!important;
+  width:66%!important;
+}
+
+/* Enlarge artwork inside the fixed right third so motif edges crop cleanly. */
+body .app .shelf-list>article:after{
+  background-position:center!important;
+  background-size:155% 155%!important;
+}
+
+/* Slightly narrower artwork panel; all other Library geometry stays unchanged. */
+body .app .shelf-list>article:after{
+  left:72%!important;
+  width:auto!important;
+}
+
+/* Slightly shorter Library cards without changing their horizontal layout. */
+body .app .shelf-list>article{
+  padding:13px 16px!important;
+}
+
+/* Professional ochre pair reuses the exact flowing contour motif from Today. */
+body .app .shelf-list>article:has(.type-badge.sage):after{
+  background-image:
+    radial-gradient(ellipse 112% 188% at -12% 126%,transparent 0 21%,#9d7436 22% 29%,transparent 30% 40%,#b28643 41% 48%,transparent 49% 59%,#c49a55 60% 67%,transparent 68%),
+    radial-gradient(ellipse 96% 145% at 112% -48%,transparent 0 24%,rgba(143,104,47,.55) 25% 32%,transparent 33% 46%,rgba(178,134,67,.45) 47% 54%,transparent 55%)!important;
+}
+
+/* Crisp SVG contour artwork for ochre, plus square left card corners. */
+body .app .shelf-list>article{
+  border-radius:0 20px 20px 0!important;
+}
+body .app .shelf-list>article:has(.type-badge.sage):after{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 120'%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cpath d='M-25 18C8-10 29 47 59 20S108-7 137 21s52 20 73-4' stroke='%239d7436' stroke-width='13'/%3E%3Cpath d='M-22 61C9 31 34 90 65 60s55-26 84 3 46 19 67-5' stroke='%23b28643' stroke-width='13'/%3E%3Cpath d='M-26 105C7 73 30 132 62 102s57-27 87 2 47 20 68-5' stroke='%23c49a55' stroke-width='13'/%3E%3C/g%3E%3C/svg%3E")!important;
+}
+
+/* Library reuses the exact ochre and lilac artwork from Today. */
+body .app .shelf-list>article:has(.type-badge.sage):after{
+  background-image:
+    radial-gradient(ellipse 112% 188% at -12% 126%,transparent 0 21%,#9d7436 22% 29%,transparent 30% 40%,#b28643 41% 48%,transparent 49% 59%,#c49a55 60% 67%,transparent 68%),
+    radial-gradient(ellipse 96% 145% at 112% -48%,transparent 0 24%,rgba(143,104,47,.55) 25% 32%,transparent 33% 46%,rgba(178,134,67,.45) 47% 54%,transparent 55%),
+    linear-gradient(145deg,#d8b978,#eed9a8)!important;
+}
+body .app .shelf-list>article:has(.type-badge.lilac):after{
+  background-image:url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20240%2080'%3E%3Crect%20width='240'%20height='80'%20fill='%23896ab5'/%3E%3Cg%20fill='none'%20stroke='%23eee7f7'%20stroke-width='14'%20stroke-linecap='round'%3E%3Cpath%20d='M-25%2014%20C18%20-8%2038%2055%2082%2028%20S142%208%20170%2046%20S222%2088%20266%2044'/%3E%3Cpath%20d='M-18%2070%20C20%2040%2050%2094%2090%2060%20S145%2032%20182%2068%20S230%2092%20260%2072'/%3E%3Cpath%20d='M18%20-14%20C36%2018%2062%20-4%2084%2010%20S118%2046%20138%20-10'/%3E%3C/g%3E%3C/svg%3E")!important;
+}
+
+/* Crisp vector reconstruction of Today's ochre contour rings. */
+body .app .shelf-list>article:has(.type-badge.sage):after{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 120' preserveAspectRatio='xMidYMid slice' shape-rendering='geometricPrecision'%3E%3Cdefs%3E%3ClinearGradient id='b' x1='0' y1='1' x2='1' y2='0'%3E%3Cstop stop-color='%23d8b978'/%3E%3Cstop offset='1' stop-color='%23eed9a8'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='180' height='120' fill='url(%23b)'/%3E%3Cg fill='none' stroke-linecap='round'%3E%3Cellipse cx='-22' cy='151' rx='51' ry='57' stroke='%239d7436' stroke-width='14'/%3E%3Cellipse cx='-22' cy='151' rx='91' ry='102' stroke='%23b28643' stroke-width='14'/%3E%3Cellipse cx='-22' cy='151' rx='127' ry='142' stroke='%23c49a55' stroke-width='14'/%3E%3Cellipse cx='202' cy='-58' rx='60' ry='44' stroke='%238f682f' stroke-opacity='.55' stroke-width='13'/%3E%3Cellipse cx='202' cy='-58' rx='108' ry='82' stroke='%23b28643' stroke-opacity='.45' stroke-width='13'/%3E%3C/g%3E%3C/svg%3E")!important;
+  background-size:cover!important;
+}
+
+/* All Library cards use the same fully rounded outer silhouette. */
+body .app .shelf-list>article{
+  border-radius:20px!important;
+}
+body .app .shelf-list>article:has(.type-badge.sage):after,
+body .app .shelf-list>article:has(.type-badge.lilac):after{
+  border-radius:0 20px 20px 0!important;
+}
+
+/* Account and cloud-sync controls follow the existing soft card system. */
+.cloud-account,
+.auth-copy{
+  align-items:center;
+  background:#faf7f2;
+  border-radius:16px;
+  display:flex;
+  gap:12px;
+  margin-bottom:16px;
+  padding:14px;
+}
+.cloud-account>svg,
+.auth-copy>svg{
+  fill:none;
+  flex:0 0 28px;
+  height:28px;
+  stroke:#876340;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  stroke-width:1.7;
+  width:28px;
+}
+.cloud-account>div,
+.auth-copy>div{display:grid;flex:1;gap:3px;min-width:0}
+.cloud-account b,
+.auth-copy b{font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cloud-account span,
+.auth-copy span{color:var(--journal-muted);font-size:11px;line-height:1.35}
+.cloud-account>button,
+.auth-switch{
+  background:#fff;
+  border:1px solid var(--journal-line);
+  border-radius:10px;
+  color:var(--journal-text);
+  min-height:44px;
+  padding:0 12px;
+}
+.auth-copy{background:#f0dfb8}
+.auth-switch{margin-top:12px;width:100%}
+.primary:disabled{cursor:not-allowed;opacity:.55}

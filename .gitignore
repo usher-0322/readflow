@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.pnpm-store/
+.wrangler-tmp/
+readflow-cloudflare/
+*.zip
+publish-github.ps1
+.env
+.env.*
+!.env.example

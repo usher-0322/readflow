@@ -1,0 +1,45 @@
+:root {
+  --green: #28473d;
+  --cream: #f7f6f2;
+  --line: #e5e3dd;
+  --gold: #b9a06b;
+  color: #26312d;
+  background: #eae9e5;
+}
+
+.app { box-shadow: 0 0 46px #26373112; }
+.page-head h1 { color: #24352f; font-weight: 600; }
+.icon-btn svg, .round-add svg { width: 18px; stroke-width: 1.6; }
+.round-add { width: 38px; height: 38px; box-shadow: 0 5px 12px #263f3530; }
+
+.hero {
+  background: #2b443b;
+  border-radius: 20px;
+  padding: 23px;
+  box-shadow: 0 12px 28px #263b3317;
+}
+.hero::after { display: none; }
+.hero strong { font-size: 35px; font-weight: 600; }
+.hero-books { display: flex; gap: 5px; flex-wrap: wrap; max-width: 225px; margin-top: 8px; }
+.hero-books i { font-style: normal; font-size: 9px; color: #d7dfdb; border: 1px solid #ffffff25; border-radius: 10px; padding: 3px 7px; }
+.ring { width: 82px; height: 82px; background: radial-gradient(circle at center,#2b443b 64%,transparent 65%),conic-gradient(#bda66f calc(var(--p)*1%),#ffffff17 0); }
+
+.reading-card, .shelf-list article, .plan-list article, .quote-list article, .chart-card { box-shadow: none; border-color: #e6e4de; }
+.cover, .mini-cover {
+  background: linear-gradient(145deg,color-mix(in srgb,var(--cover) 72%,#f1eee7),color-mix(in srgb,var(--cover) 88%,#273831));
+  border-radius: 7px;
+  color: transparent;
+  box-shadow: 0 7px 14px #23362f12;
+}
+.cover { flex-basis: 64px; height: 96px; }
+.mini-cover { flex-basis: 50px; height: 72px; }
+.cover::before, .mini-cover::before { content: ''; position: absolute; inset: 0; background: linear-gradient(105deg,#ffffff13,transparent 34%); }
+.cover::after, .mini-cover::after { left: 7px; background: #ffffff38; }
+
+.primary { border-radius: 10px; font-weight: 500; }
+.primary.slim { padding: 7px; font-size: 11px; color: #355247; background: #eef1ed; }
+.primary.slim svg { width: 13px; stroke-width: 1.6; fill: none; }
+.streak { background: #f0ede5; color: #7e6d4f; font-weight: 500; }
+.streak svg { width: 14px; fill: none; stroke: #967c4d; stroke-width: 1.7; }
+nav svg { width: 18px; stroke-width: 1.6; }
+nav .active svg { stroke-width: 2; }
