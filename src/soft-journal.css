@@ -723,6 +723,15 @@ nav{background:rgba(255,255,255,.94)!important;border:0!important;border-radius:
   -webkit-box-orient:vertical;
   -webkit-line-clamp:2;
 }
+.plan-list .plan-status{
+  color:#6f6861;
+  display:block;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.05em;
+  margin-bottom:3px;
+  text-transform:uppercase;
+}
 .plan-list .forecast{flex-wrap:wrap}
 .plan-list .plan-edit{
   align-items:center;
