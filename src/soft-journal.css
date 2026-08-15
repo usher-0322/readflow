@@ -990,6 +990,10 @@ body .app .shelf-list>article:has(.type-badge.lilac):after{
 body .app .shelf-list>article[style]{
   background:color-mix(in srgb,var(--type-color) 18%,white)!important;
 }
+body .app .shelf-list>article[style]:after{
+  background-color:var(--type-color)!important;
+  background-blend-mode:luminosity!important;
+}
 .reading-card[style] .progress i,
 body .app .shelf-list>article[style] .line i,
 .excerpt-progress>div[style] .progress i{
