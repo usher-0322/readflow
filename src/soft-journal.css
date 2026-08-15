@@ -987,11 +987,11 @@ body .app .shelf-list>article:has(.type-badge.lilac):after{
   --plan-pale:color-mix(in srgb,var(--type-color) 16%,white)!important;
   --plan-deep:color-mix(in srgb,var(--type-color) 78%,black)!important;
 }
-.shelf-list>article[style]{
-  background-color:color-mix(in srgb,var(--type-color) 16%,white)!important;
+body .app .shelf-list>article[style]{
+  background:color-mix(in srgb,var(--type-color) 18%,white)!important;
 }
 .reading-card[style] .progress i,
-.shelf-list>article[style] .line i,
+body .app .shelf-list>article[style] .line i,
 .excerpt-progress>div[style] .progress i{
   background:var(--type-color)!important;
 }
