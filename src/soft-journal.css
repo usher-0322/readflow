@@ -724,6 +724,26 @@ nav{background:rgba(255,255,255,.94)!important;border:0!important;border-radius:
   -webkit-line-clamp:2;
 }
 .plan-list .forecast{flex-wrap:wrap}
+.plan-list .plan-edit{
+  align-items:center;
+  background:transparent;
+  border:1px solid color-mix(in srgb,var(--type-color,#8d8175) 38%,white);
+  border-radius:12px;
+  color:#332d27;
+  display:flex;
+  font-size:11px;
+  font-weight:700;
+  gap:6px;
+  justify-content:center;
+  margin-top:10px;
+  min-height:44px;
+  padding:8px 10px;
+  transition:background-color .18s ease,border-color .18s ease;
+  width:100%;
+}
+.plan-list .plan-edit svg{height:14px;width:14px}
+.plan-list .plan-edit:hover{background:color-mix(in srgb,var(--type-color,#8d8175) 12%,white)}
+.plan-list .plan-edit:focus-visible{outline:2px solid #1f1f1f;outline-offset:2px}
 
 @media (max-width:560px){
   .plan-list{
