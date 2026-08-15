@@ -964,3 +964,47 @@ body .app .shelf-list>article:has(.type-badge.lilac):after{
 .auth-copy{background:#f0dfb8}
 .auth-switch{margin-top:12px;width:100%}
 .primary:disabled{cursor:not-allowed;opacity:.55}
+
+/* User-defined book type colors */
+.type-badge{
+  background:color-mix(in srgb,var(--type-color,#8d8175) 26%,white)!important;
+  color:#302c29!important;
+}
+.filter-row button.selected[style]{
+  background:var(--filter-color)!important;
+  border-color:var(--filter-color)!important;
+  color:#171513!important;
+}
+.reading-card[style]{
+  --type-accent:var(--type-color)!important;
+  --type-soft:color-mix(in srgb,var(--type-color) 34%,white)!important;
+  --type-pale:color-mix(in srgb,var(--type-color) 16%,white)!important;
+  --type-deep:color-mix(in srgb,var(--type-color) 78%,black)!important;
+}
+.plan-list article[style]{
+  --plan-accent:var(--type-color)!important;
+  --plan-soft:color-mix(in srgb,var(--type-color) 34%,white)!important;
+  --plan-pale:color-mix(in srgb,var(--type-color) 16%,white)!important;
+  --plan-deep:color-mix(in srgb,var(--type-color) 78%,black)!important;
+}
+.shelf-list>article[style]{
+  background-color:color-mix(in srgb,var(--type-color) 16%,white)!important;
+}
+.reading-card[style] .progress i,
+.shelf-list>article[style] .line i,
+.excerpt-progress>div[style] .progress i{
+  background:var(--type-color)!important;
+}
+.type-editor input.type-color-input{
+  appearance:none;
+  background:transparent!important;
+  border:0!important;
+  border-radius:50%!important;
+  flex:0 0 36px;
+  height:36px;
+  min-height:36px!important;
+  padding:0!important;
+  width:36px!important;
+}
+.type-color-input::-webkit-color-swatch-wrapper{padding:2px}
+.type-color-input::-webkit-color-swatch{border:2px solid #fff;border-radius:50%;box-shadow:0 0 0 1px var(--journal-line)}
